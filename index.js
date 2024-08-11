@@ -100,6 +100,8 @@ function authenticateToken(req,res,next){
 app
 .get("/agents",authenticateToken, (req,res)=>{
     console.log(req.user);
+    console.log(req);
+    
     
     if (req.user == "No token") {
         res.send("No token")
