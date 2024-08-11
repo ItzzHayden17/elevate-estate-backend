@@ -36,10 +36,10 @@ const s3 = new S3Client({
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cookieParser())
 var corsOptions = {
-    origin: 'https://elevate-estate-frontend.onrender.com',
+    origin: 'http:localhost:3000',
     credentials : true
    }
-
+app.use(cors(corsOptions))
 
 
 const port = 8080
