@@ -39,7 +39,7 @@ var corsOptions = {
     origin: 'https://elevate-estate-frontend.onrender.com',
     credentials : true
    }
-app.use(cors(corsOptions))
+
 
 
 const port = 8080
