@@ -78,11 +78,12 @@ db.query(users_table+agents_table+listings_table, (err,res) =>{
 
 function authenticateToken(req,res,next){
     const token = req.cookies.token
-
+    console.log(req.cookies.token);
+    console.log(req.user)
+    
 
     if (token == null) {
-        console.log(req.user);
-        
+      
         req.user = "No token"
         next()
     } else {
@@ -99,10 +100,7 @@ function authenticateToken(req,res,next){
 
 app
 .get("/agents",authenticateToken, (req,res)=>{
-    console.log(req.user);
-    console.log(req);
-    
-    
+   
     if (req.user == "No token") {
         res.send("No token")
     } else {
