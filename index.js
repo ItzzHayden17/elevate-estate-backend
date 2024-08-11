@@ -99,7 +99,7 @@ app
 .get("/agents",authenticateToken, (req,res)=>{
 
     if (req.user == "No token") {
-        res.send("No auth token")
+        res.send("No token")
     } else {
        db.query("SELECT * FROM agents ",(err,data) =>{
         if (err) {
