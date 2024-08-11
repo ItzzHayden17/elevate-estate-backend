@@ -78,8 +78,7 @@ db.query(users_table+agents_table+listings_table, (err,res) =>{
 
 function authenticateToken(req,res,next){
     const token = req.cookies.token
-    console.log(req.cookies.token);
-    console.log(req.user)
+    console.log(req.headers)
     
 
     if (token == null) {
