@@ -36,7 +36,7 @@ const s3 = new S3Client({
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cookieParser())
 var corsOptions = {
-    origin: 'http://localhost:3000',
+    origin: 'https://elevate-estate-frontend.onrender.com',
     credentials : true
    }
 app.use(cors(corsOptions))
@@ -219,7 +219,7 @@ app
 
 .get("/logout",(req,res)=>{
     res.clearCookie("token")
-    res.redirect("http://localhost:3000")
+    res.redirect("https://elevate-estate-frontend.onrender.com")
 })
 
 .post("/signup",upload.single('image'), (req,res)=>{
@@ -253,7 +253,7 @@ app
                                 httpOnly:true,
                                 maxAge:3000000000
                             })
-                            res.redirect("http://localhost:3000")
+                            res.redirect("https://elevate-estate-frontend.onrender.com")
                         })
                     }
                 }
@@ -272,7 +272,7 @@ app
                                 httpOnly:true,
                                 maxAge:3000000000
                             })
-                            res.redirect("http://localhost:3000")
+                            res.redirect("https://elevate-estate-frontend.onrender.com")
                         })
                     }
                 }
@@ -313,7 +313,7 @@ app
                                             httpOnly:true,
                                             maxAge:3000000000
                                         })
-                                        res.redirect("http://localhost:3000/my-profile")
+                                        res.redirect("https://elevate-estate-frontend.onrender.com/my-profile")
  
                                     }else{
                                         res.send("Password incorrect")
