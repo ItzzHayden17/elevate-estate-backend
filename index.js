@@ -47,12 +47,13 @@ const saltRounds = 15
 const tokenSecret = "anray"
 
 const db = new pg.Client({
-    host: process.env.host,
-    user: "anray",
-    password: process.env.password,
+    user     : process.env.RDS_USERNAME,
+    host     : process.env.RDS_HOSTNAME,
     database: "postgres",
-    port: 5432,
-    ssl:true,
+    password : process.env.RDS_PASSWORD,
+    port     : process.env.RDS_PORT,
+    ssl: true
+    
 })
 
 try {
