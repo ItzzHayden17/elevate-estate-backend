@@ -81,6 +81,8 @@ function authenticateToken(req,res,next){
 
 
     if (token == null) {
+        console.log(req.user);
+        
         req.user = "No token"
         next()
     } else {
@@ -97,7 +99,8 @@ function authenticateToken(req,res,next){
 
 app
 .get("/agents",authenticateToken, (req,res)=>{
-
+    console.log(req.user);
+    
     if (req.user == "No token") {
         res.send("No token")
     } else {
