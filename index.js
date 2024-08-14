@@ -37,7 +37,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cookieParser())
 app.use(function(req, res, next) {
     // res.header("Access-Control-Allow-Origin", "*");
-    const allowedOrigins = ['http://localhost:3000', 'https://elevate-estate-frontend.onrender.com'];
+    const allowedOrigins = ['http://localhost:3000', 'https://elevate-estate-frontend.onrender.com','https://chumpchange.co.za'];
     const origin = req.headers.origin;
     if (allowedOrigins.includes(origin)) {
          res.setHeader('Access-Control-Allow-Origin', origin);
