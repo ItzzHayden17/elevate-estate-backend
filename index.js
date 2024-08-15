@@ -35,21 +35,8 @@ const s3 = new S3Client({
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cookieParser())
-app.use(function(req, res, next) {
-    // res.header("Access-Control-Allow-Origin", "*");
-    const allowedOrigins = ['http://localhost:3000', 'https://elevate-estate-frontend.onrender.com'];
-    const origin = req.headers.origin;
-    if (allowedOrigins.includes(origin)) {
-         res.setHeader('Access-Control-Allow-Origin', origin);
-    }
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
-    res.header("Access-Control-Allow-credentials", true);
-    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, UPDATE");
-    next();
-  })
-
 var corsOptions = {
-    origin: 'https://elevate-estate-frontend.onrender.com',
+    origin: 'chumphange.co.za',
     credentials: true, // Important for cookies, authorization headers with HTTPS
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
     allowedHeaders: [
@@ -61,7 +48,7 @@ var corsOptions = {
     ],
     
    }
-
+   app.use(cors(corsOptions))
 
 const port = 8080
 const saltRounds = 15
@@ -99,7 +86,7 @@ db.query(users_table+agents_table+listings_table, (err,res) =>{
 
 function authenticateToken(req,res,next){
     const token = req.cookies.token
-    console.log(req.headers)
+    console.log(req.cookies)
     
 
     if (token == null) {
